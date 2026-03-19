@@ -1,0 +1,5 @@
+flask
+rapidfuzz
+groq
+requests
+gunicorn
