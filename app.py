@@ -267,6 +267,10 @@ def chat_route():
 
     return jsonify({"type": "error", "answer": "Add your Groq API key to app.py!"})
 
+@app.route("/brain")
+def view_brain():
+    load_brain()
+    return jsonify(brain)
 
 if __name__ == "__main__":
     load_brain()
