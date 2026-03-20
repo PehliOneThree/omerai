@@ -21,7 +21,7 @@ except ImportError:
 
 # ─────────────────────────────────────────────
 # PASTE YOUR GROQ KEY HERE:
-GROQ_API_KEY = "paste-your-groq-key-here"
+GROQ_API_KEY = "paste-your-new-groq-key-here"
 # ─────────────────────────────────────────────
 
 CONFIDENCE      = 65
@@ -81,7 +81,7 @@ def ask_groq(question):
                     {"role": "system", "content": "You are OmerAI. Answer in 1-3 sentences. Plain text only."},
                     {"role": "user", "content": question}
                 ],
-                max_tokens=3000,
+                max_tokens=300,
             )
             return chat.choices[0].message.content.strip(), None
         except Exception as e:
@@ -267,10 +267,12 @@ def chat_route():
 
     return jsonify({"type": "error", "answer": "Add your Groq API key to app.py!"})
 
+
 @app.route("/brain")
 def view_brain():
     load_brain()
     return jsonify(brain)
+
 
 if __name__ == "__main__":
     load_brain()
